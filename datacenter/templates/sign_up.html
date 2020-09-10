@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="{{url_for('static',filename='css/styles.css')}}"
+    />
+    <title>Sing_up</title>
+  </head>
+  <body>
+    <header class="title">
+      <div class="logo">
+        <img
+          src="{{url_for('static',filename='images/logo.png')}}"
+          class="logo-image"
+        />
+      </div>
+      <div><h1>Hankisul Data Center</h1></div>
+    </header>
+    <main class="main">
+      <h2 class="login">Sign up</h2>
+      <form action="/" method="POST">
+        <input type="username" name="username" placeholder="Username" />
+        <input type="password" name="password" placeholder="Password" />
+        <br /><br />
+        <input type="submit" value="Sign up" />
+      </form>
+    </main>
+  </body>
+</html>
