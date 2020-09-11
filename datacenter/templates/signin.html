@@ -7,9 +7,12 @@
       rel="stylesheet"
       href="{{url_for('static',filename='css/styles.css')}}"
     />
-    <title>Sing_up</title>
+    <title>Hankisul Data Center</title>
   </head>
   <body>
+    {% block content %} {% if session['logged_in'] %}
+    <p>이미 로그인하셨습니다.</p>
+    {% else %}
     <header class="title">
       <div class="logo">
         <img
@@ -18,15 +21,29 @@
         />
       </div>
       <div><h1>Hankisul Data Center</h1></div>
+
+      <a href="/"
+        ><img
+          src="{{ url_for('static',filename='images/home.png')}}"
+          width="30"
+      /></a>
     </header>
     <main class="main">
-      <h2 class="login">Sign up</h2>
-      <form action="/" method="POST">
+      <h2 class="sign_in">Sign in</h2>
+      <form action="/main" method="POST">
+        <label class="userinfo">아이디</label>
         <input type="username" name="username" placeholder="Username" />
+
+        <label class="userinfo">비밀번호</label>
         <input type="password" name="password" placeholder="Password" />
-        <br /><br />
-        <input type="submit" value="Sign up" />
+
+        <input type="submit" value="Sign in" />
+      </form>
+      <br />
+      <form action="/sign_up" method="GET">
+        <button>Sign up</button>
       </form>
     </main>
+    {% endif %} {% endblock %}
   </body>
 </html>

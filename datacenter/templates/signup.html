@@ -10,6 +10,9 @@
     <title>Hankisul Data Center</title>
   </head>
   <body>
+    {% if session['logged_in'] %}
+    <p>또 가입하시게요?</p>
+    {% else %}
     <header class="title">
       <div class="logo">
         <img
@@ -25,31 +28,19 @@
           width="30"
       /></a>
     </header>
-    {% block content %} {% if session['logged_in'] %} {% else %}
-    <main>
-      <form action="/Non-Labelled" method="get">
-        <button>Non-Labelled</button>
-      </form>
-      <form action="/Labelled" method="get">
-        <button>Labelled</button>
-      </form>
-      <form action="/Verified" method="get">
-        <button>verified</button>
-      </form>
-      <br /><br />
-      <form action="/logout" method="get">
-        <button>Logout</button>
-      </form>
-    </main>
-    {% endif %} {% else %}
-    <main>
-      <h2 class="sign_in">Sign in</h2>
-      <form action="/signin" method="GET">
-        <button>Sign in</button>
-      </form>
-      <br />
-      <form action="/signup" method="GET">
-        <button>Sign up</button>
+    <main class="main">
+      <h2 class="login">Sign up</h2>
+      <form action="/" method="POST">
+        <label class="legend">아이디</label>
+        <input type="username" name="username" placeholder="Username" />
+
+        <label class="legend">비밀번호</label>
+        <input type="password" name="password" placeholder="Password" />
+
+        <label class="legend">이메일</label>
+        <input type="email" name="email" placeholder="email@email.com" />
+        <br /><br />
+        <input type="submit" value="Sign up" />
       </form>
     </main>
     {% endif %} {% endblock %}
